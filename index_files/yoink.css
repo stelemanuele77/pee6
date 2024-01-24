@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+}
+video{
+    width:100%; 
+    height:100%;
+    vertical-align: top;
+}
+img{
+    width:100%; 
+    height:100%;
+    vertical-align: top;
+}
