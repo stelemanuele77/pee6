@@ -8,35 +8,84 @@
     <meta content="https://embed.com/embedimage.png" property="og:image" />
     <meta content="PEE6 is ready to ruin your servers and make every user leave of how trash it is, get ready and set-up this bot, and you will lose all of your members, for more information visit pee6.xyz/about" property="og:description" />
 </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+        #button-container {
+            position: absolute;
+            z-index: 10;
+        }
+        #load-button {
+            padding: 20px 40px;
+            font-size: 24px;
+            cursor: pointer;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+        }
+        #video-container {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        #video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        video::-webkit-media-controls-enclosure {
+            display: none !important;
+        }
+
+        #video-controls {
+            z-index: 2147483647;
+            position: absolute;
+        }
+    </style>
+</head>
 <body>
-    <header>
-        <h1>Welcome to PEE6</h1>
-        <p>Your Worst Discord Bot Experience</p>
-    </header>
+    <div id="button-container">
+        <button id="load-button" disabled>Click here to continue</button>
+    </div>
+    <div id="video-container">
+        <video id="video" src="/video.mp4" preload="auto" controls></video>
+    </div>
 
-    <section id="about">
-        <h2>About PEE6</h2>
-        <p>PEE6 is the worst Discord bot designed to destroy your server. With a wide range of useless feature, like auto leave that makes the bot leave once it joined, it's the worst addition to any community seeking entertainment and utility.</p>
-    </section>
-
-    <section id="features">
-        <h2>Key Features</h2>
-        <ul>
-            <li>Uhm</li>
-            <li>uhhh</li>
-            <li>insert text here</li>
-            <li>And Much More!</li>
-        </ul>
-    </section>
-
-    <section id="get-started">
-        <h2>Get Started</h2>
-        <p>Ready to destroy your server with PEE6? Join us today and enjoy a seamless Discord experience.</p>
-        <a href="https://pee6.xyz/about" target="_blank">Learn More</a>
-    </section>
-
-    <footer>
-        <p>Not Affiliated with anything (this is a joke)</p>
-    </footer>
+    <script>
+            var video = document.getElementById('video');
+            video.oncanplay = function() {
+                document.getElementById('load-button').disabled = false;
+            };
+            
+            document.getElementById('load-button').addEventListener('click', function() {
+                video.play();
+                video.controls = false;
+                video.removeAttribute("controls");
+                
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.msRequestFullscreen) {
+                    video.msRequestFullscreen();
+                }
+                
+                document.getElementById('button-container').style.display = 'none';
+                document.getElementById('video-container').style.display = 'block';
+            });
+    </script>
 </body>
 </html>
+</html>
+
